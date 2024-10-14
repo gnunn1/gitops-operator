@@ -1341,6 +1341,92 @@
                     }
                 }
             ]
+        },
+        {
+            "collapse": false,
+            "editable": true,
+            "height": "250px",
+            "title": "Redis Stats",
+            "showTitle": true,
+            "panels": [
+                {
+                    "aliasColors": {},
+                    "bars": false,
+                    "dashLength": 10,
+                    "dashes": false,
+                    "datasource": "$datasource",
+                    "fill": 1,
+                    "fillGradient": 0,
+                    "gridPos": {
+                        "h": 7,
+                        "w": 24,
+                        "x": 0,
+                        "y": 13
+                    },
+                    "hiddenSeries": false,
+                    "id": 112,
+                    "legend": {
+                        "avg": false,
+                        "current": false,
+                        "max": false,
+                        "min": false,
+                        "show": true,
+                        "total": false,
+                        "values": false
+                    },
+                    "lines": true,
+                    "linewidth": 1,
+                    "nullPointMode": "null",
+                    "options": {
+                        "alertThreshold": true
+                    },
+                    "percentage": false,
+                    "pluginVersion": "10.3.1",
+                    "pointradius": 2,
+                    "points": false,
+                    "renderer": "flot",
+                    "seriesOverrides": [],
+                    "spaceLength": 10,
+                    "stack": false,
+                    "steppedLine": false,
+                    "targets": [
+                        {
+                        "expr": "sum(increase(argocd_redis_request_total{namespace=~\"$namespace\"}[$interval])) by (failed)",
+                        "legendFormat": "failed={{ failed }}",
+                        "refId": "A"
+                        }
+                    ],
+                    "thresholds": [],
+                    "timeRegions": [],
+                    "title": "Requests by result",
+                    "tooltip": {
+                        "shared": true,
+                        "sort": 0,
+                        "value_type": "individual"
+                    },
+                    "type": "graph",
+                    "xaxis": {
+                        "mode": "time",
+                        "show": true,
+                        "values": []
+                    },
+                    "yaxes": [
+                        {
+                        "format": "short",
+                        "logBase": 1,
+                        "show": true
+                        },
+                        {
+                        "format": "short",
+                        "logBase": 1,
+                        "show": true
+                        }
+                    ],
+                    "yaxis": {
+                        "align": false
+                    }
+                }
+            ]
         }
     ],
     "schemaVersion": 27,
